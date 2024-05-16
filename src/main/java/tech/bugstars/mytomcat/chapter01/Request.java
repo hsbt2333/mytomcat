@@ -1,4 +1,4 @@
-package tech.bugstars.tomcat.chapter01;
+package tech.bugstars.mytomcat.chapter01;
 
 import java.io.IOException;
 import java.io.InputStream;

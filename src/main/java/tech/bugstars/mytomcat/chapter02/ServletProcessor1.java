@@ -1,4 +1,4 @@
-package tech.bugstars.tomcat.chapter02;
+package tech.bugstars.mytomcat.chapter02;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -25,7 +25,7 @@ public class ServletProcessor1 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        servletName = "tech.bugstars.tomcat.chapter02." + servletName;
+        servletName = "tech.bugstars.mytomcat.chapter02." + servletName;
         Class myClass = null;
         try {
             myClass = urlClassLoader.loadClass(servletName);

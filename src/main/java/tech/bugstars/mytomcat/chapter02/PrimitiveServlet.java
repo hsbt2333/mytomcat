@@ -1,4 +1,6 @@
-package tech.bugstars.tomcat.chapter02;
+package tech.bugstars.mytomcat.chapter02;
+
+import tech.bugstars.mytomcat.chapter02.facade.ResponseFacade;
 
 import javax.servlet.*;
 import java.io.IOException;
@@ -19,6 +21,15 @@ public class PrimitiveServlet implements Servlet {
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
         System.out.println("service");
+        if (res instanceof Response) {
+            System.out.println("未使用外观模式");
+            Response response = (Response) res;
+            response.sendStaticResource();
+        }else if (res instanceof ResponseFacade) {
+            System.out.println("使用外观模式");
+            ResponseFacade response = (ResponseFacade) res;
+            //response.sendStaticResource();    //调不了
+        }
         PrintWriter writer = res.getWriter();
         writer.println("HTTP/1.1 200 OK\r\n");
         writer.println("123456");

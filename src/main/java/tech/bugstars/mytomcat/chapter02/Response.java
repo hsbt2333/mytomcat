@@ -1,4 +1,4 @@
-package tech.bugstars.tomcat.chapter02;
+package tech.bugstars.mytomcat.chapter02;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletResponse;
@@ -15,7 +15,7 @@ public class Response implements ServletResponse {
     }
 
     public void sendStaticResource() {
-        File file = new File(HttpServer1.WEB_ROOT, request.getUri());
+        File file = new File(Constants.WEB_ROOT, request.getUri());
         if (file.exists() && file.isFile()) {
             try (FileInputStream fis = new FileInputStream(file)) {
                 output.write("HTTP/1.1 200 ok\r\n".getBytes());

@@ -1,4 +1,4 @@
-package tech.bugstars.tomcat.chapter02;
+package tech.bugstars.mytomcat.chapter02;
 
 import java.io.File;
 

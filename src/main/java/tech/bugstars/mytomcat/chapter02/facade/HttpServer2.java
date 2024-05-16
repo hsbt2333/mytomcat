@@ -1,6 +1,7 @@
-package tech.bugstars.tomcat.chapter02;
+package tech.bugstars.mytomcat.chapter02.facade;
 
-import java.io.File;
+import tech.bugstars.mytomcat.chapter02.*;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -8,17 +9,21 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class HttpServer1 {
-
-    public static final String WEB_ROOT = System.getProperty("user.dir") + File.separator + "webroot";
-
+/**
+ * 外观模式 让 servlet 安全使用 request 和 response
+ * 因为ServletProcessor 中传入进去的是自定义实现的 request 和 response
+ * 调用service时，会向上强转成 ServletRequest 和 ServletResponse
+ * 但如果 Servlet 里面对这两个对象强转回 Request 和 Response，就会访问这两个类的公共方法
+ * 所以用外观模式进行了一层封装
+ */
+public class HttpServer2 {
     public static final String SHUTDOWN_COMMAND = "/shutdown";
 
     private boolean shutdown = false;
 
     public static void main(String[] args) {
-        HttpServer1 httpServer1 = new HttpServer1();
-        httpServer1.await();
+        HttpServer2 httpServer2 = new HttpServer2();
+        httpServer2.await();
     }
 
     private void await(){
@@ -34,8 +39,8 @@ public class HttpServer1 {
                 response.setRequest(request);
 
                 if(request.getUri().startsWith("/servlet/")){
-                    ServletProcessor1 servletProcessor1 = new ServletProcessor1();
-                    servletProcessor1.process(request,response);
+                    ServletProcessor2 servletProcessor2 = new ServletProcessor2();
+                    servletProcessor2.process(request,response);
                 }else {
                     StaticResourceProcessor staticResourceProcessor = new StaticResourceProcessor();
                     staticResourceProcessor.process(request,response);
