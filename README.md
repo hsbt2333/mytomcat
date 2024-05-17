@@ -1,1 +1,1 @@
-# myTomcat
+# mytomcat

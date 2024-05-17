@@ -32,7 +32,8 @@ public class HttpConnector implements Runnable {
             } catch (IOException e) {
                 continue;
             }
-
+            HttpProcessor httpProcessor = new HttpProcessor();
+            httpProcessor.process(socket);
         }
     }
 

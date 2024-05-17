@@ -12,8 +12,11 @@ public class HttpProcessor {
         try {
             input = new SocketInputStream(socket.getInputStream(), 2048);
             output = socket.getOutputStream();
-            // request = new
-            // response = new
+            HttpRequest request = new HttpRequest(input);
+            HttpResponse response = new HttpResponse(output);
+            response.setRequest(request);
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
