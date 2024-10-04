@@ -18,4 +18,6 @@ public class HttpResponse {
     public void setRequest(HttpRequest request) {
         this.request = request;
     }
+
+    public void setHeader(){}
 }

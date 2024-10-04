@@ -7,17 +7,25 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 public class HttpRequest implements HttpServletRequest {
 
     private InputStream input;
+    protected HashMap headers = new HashMap();
+    protected ArrayList cookies = new ArrayList<>();
+    //protected ParameterMap paramters = null;
 
     public HttpRequest(InputStream input) {
         this.input = input;
+    }
+
+    public void addHeader(){
+
+    }
+
+    public void addCookie(){
+
     }
 
     @Override

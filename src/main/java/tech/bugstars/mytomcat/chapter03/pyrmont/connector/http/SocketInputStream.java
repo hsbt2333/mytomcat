@@ -14,6 +14,14 @@ public class SocketInputStream extends InputStream {
 
     @Override
     public int read() throws IOException {
-        return 0;
+        return is.read();
+    }
+
+    public HttpRequestLine readRequestLine(){
+        return null;
+    }
+
+    public HttpHeader readHeader(){
+        return null;
     }
 }
